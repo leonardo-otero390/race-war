@@ -3,6 +3,7 @@ package seed
 import (
 	"log"
 
+	"github.com/leonardo-otero390/race_war/database"
 	"github.com/leonardo-otero390/race_war/models"
 	"gorm.io/gorm"
 )
@@ -20,6 +21,16 @@ var users = []models.User{
 	},
 }
 
+func SeedUsers() ([]models.User, error) {
+	for i := range users {
+		err := database.DB.Model(&models.User{}).Create(&users[i]).Error
+		if err != nil {
+			return []models.User{}, err
+		}
+	}
+	return users, nil
+}
+
 func Load(db *gorm.DB) {
 	err := db.Debug().Migrator().DropTable(&models.User{})
 	if err != nil {
@@ -30,8 +41,5 @@ func Load(db *gorm.DB) {
 		log.Panic("cannot migrate table: ", err)
 	}
 
-	for i := range users {
-		db.Debug().Create(&users[i])
-
-	}
+	SeedUsers()
 }

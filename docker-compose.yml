@@ -1,0 +1,29 @@
+version: '3'
+services:
+  postgres:
+    image: "postgres"
+    container_name: database
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=root      
+      - DATABASE_HOST=localhost
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./database_postgres:/var/lib/postgresql/data 
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    depends_on:
+      - fullstack
+    ports:
+      - "5050:80"
+    restart: unless-stopped
+
+volumes:
+  postgres:
