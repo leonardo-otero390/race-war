@@ -8,6 +8,7 @@ import (
 func HandleRequest() {
 	r := gin.Default()
 	r.GET("/health", controllers.HealthCheck)
-	r.GET("/users", controllers.AllUsers)
+	r.GET("/users", controllers.FindUsers)
+	r.POST("/users", controllers.CreateUser)
 	r.Run()
 }

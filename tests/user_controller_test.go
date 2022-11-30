@@ -1,6 +1,7 @@
 package tests
 
 import (
+	"bytes"
 	"encoding/json"
 	"log"
 	"net/http"
@@ -10,13 +11,27 @@ import (
 	"github.com/leonardo-otero390/race_war/database"
 	"github.com/leonardo-otero390/race_war/models"
 	"github.com/leonardo-otero390/race_war/seed"
+	"github.com/leonardo-otero390/race_war/tests/factories"
 	"github.com/stretchr/testify/assert"
 )
 
-func TestHealthCheck(t *testing.T) {
-	var req = Request{http.MethodGet, "/_health_check", nil}
+func TestCreateUser(t *testing.T) {
+	refreshUserTable()
+	user := factories.GenUser()
+	userJson, _ := json.Marshal(user)
 
-	res := MockServer(&req, controllers.HealthCheck)
+	req := Request{http.MethodPost, "/users", bytes.NewBuffer(userJson)}
+
+	res := MockServer(&req, controllers.CreateUser)
+
+	var resUser models.User
+	err := json.Unmarshal([]byte(res.Body.String()), &resUser)
+	if err != nil {
+		log.Fatalf("Cannot convert to json: %v\n", err)
+	}
+
+	assert.Equal(t, user.Email, resUser.Email)
+	assert.Equal(t, user.Nickname, resUser.Nickname)
 	assert.Equal(t, http.StatusOK, res.Code)
 }
 
@@ -30,7 +45,7 @@ func TestGetUsers(t *testing.T) {
 
 	req := Request{http.MethodGet, "/users", nil}
 
-	res := MockServer(&req, controllers.AllUsers)
+	res := MockServer(&req, controllers.FindUsers)
 
 	var users []models.User
 	err = json.Unmarshal([]byte(res.Body.String()), &users)
