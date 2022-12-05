@@ -3,7 +3,7 @@ package database
 import (
 	"log"
 
-	"github.com/leonardo-otero390/race_war/models"
+	"github.com/leonardo-otero390/race-war/models"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )

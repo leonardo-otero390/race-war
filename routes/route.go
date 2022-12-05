@@ -2,7 +2,7 @@ package routes
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/leonardo-otero390/race_war/controllers"
+	"github.com/leonardo-otero390/race-war/controllers"
 )
 
 func HandleRequest() {

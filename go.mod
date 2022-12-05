@@ -1,4 +1,4 @@
-module github.com/leonardo-otero390/race_war
+module github.com/leonardo-otero390/race-war
 
 go 1.19
 

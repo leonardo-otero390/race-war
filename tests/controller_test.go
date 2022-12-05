@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/leonardo-otero390/race_war/controllers"
+	"github.com/leonardo-otero390/race-war/controllers"
 	"github.com/stretchr/testify/assert"
 )
 

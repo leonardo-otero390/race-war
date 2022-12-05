@@ -5,8 +5,8 @@ import (
 	"log"
 
 	"github.com/bxcodec/faker/v4"
-	"github.com/leonardo-otero390/race_war/controllers"
-	"github.com/leonardo-otero390/race_war/database"
+	"github.com/leonardo-otero390/race-war/controllers"
+	"github.com/leonardo-otero390/race-war/database"
 )
 
 type User struct {

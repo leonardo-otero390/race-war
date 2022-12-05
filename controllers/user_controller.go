@@ -4,8 +4,8 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/leonardo-otero390/race_war/database"
-	"github.com/leonardo-otero390/race_war/models"
+	"github.com/leonardo-otero390/race-war/database"
+	"github.com/leonardo-otero390/race-war/models"
 	"golang.org/x/crypto/bcrypt"
 )
 

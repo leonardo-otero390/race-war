@@ -7,11 +7,11 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/leonardo-otero390/race_war/controllers"
-	"github.com/leonardo-otero390/race_war/models"
-	"github.com/leonardo-otero390/race_war/seed"
-	"github.com/leonardo-otero390/race_war/tests/factories"
-	"github.com/leonardo-otero390/race_war/tests/utils"
+	"github.com/leonardo-otero390/race-war/controllers"
+	"github.com/leonardo-otero390/race-war/models"
+	"github.com/leonardo-otero390/race-war/seed"
+	"github.com/leonardo-otero390/race-war/tests/factories"
+	"github.com/leonardo-otero390/race-war/tests/utils"
 	"github.com/stretchr/testify/assert"
 )
 

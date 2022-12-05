@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/leonardo-otero390/race_war/database"
-	"github.com/leonardo-otero390/race_war/routes"
-	"github.com/leonardo-otero390/race_war/seed"
+	"github.com/leonardo-otero390/race-war/database"
+	"github.com/leonardo-otero390/race-war/routes"
+	"github.com/leonardo-otero390/race-war/seed"
 )
 
 func main() {

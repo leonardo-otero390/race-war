@@ -3,8 +3,8 @@ package seed
 import (
 	"log"
 
-	"github.com/leonardo-otero390/race_war/database"
-	"github.com/leonardo-otero390/race_war/models"
+	"github.com/leonardo-otero390/race-war/database"
+	"github.com/leonardo-otero390/race-war/models"
 	"gorm.io/gorm"
 )
 

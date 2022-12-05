@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/leonardo-otero390/race_war/controllers/auth"
+	"github.com/leonardo-otero390/race-war/controllers/auth"
 	"golang.org/x/crypto/bcrypt"
 	"gopkg.in/validator.v2"
 )
