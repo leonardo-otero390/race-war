@@ -28,7 +28,7 @@ func FindUserByNick(nick string) models.User {
 }
 
 func HashPassword(password string) (string, error) {
-	bytes, err := bcrypt.GenerateFromPassword([]byte(password), 12)
+	bytes, err := bcrypt.GenerateFromPassword([]byte(password), 14)
 	return string(bytes), err
 }
 
@@ -39,7 +39,7 @@ func CreateUser(c *gin.Context) {
 			"error": err.Error()})
 		return
 	}
-	if err := models.ValidateUser(&user); err != nil {
+	if err := user.Validate(); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": err.Error()})
 		return
